@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-image: url('https://images3.alphacoders.com/197/197029.jpg');
+            background-size: cover;
+        }
+        label {
+            color: white;
+        }
+        .btnstyle {
+            background-color: rgb(143, 235, 135);
+            color:black;
+            padding:10px;
+            border-radius: 8px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1 style="color:white">Registration</h1></center>
+    <div style="margin-left:42%;; margin-top:5%">
+    <form method="post">
+        <label>id:</label>
+        <p><input placeholder="Enter id" type="text" name="id" required/></p>
+        <label>First_name:</label>
+        <p><input placeholder="Enter first_name" type="text" name="first_name" required/></p>
+        <label>Last_name:</label>
+        <p><input placeholder="Enter last_name" type="text" name="last_name" required/></p>
+        <label>email:</label>
+        <p><input type="email" name="email" required/></p>
+        <label>Password:</label>
+        <p><input placeholder="Enter password" type="text" name="password" required/></p>
+        <label>Bio:</label>
+        <p><input placeholder="Enter bio" type="text" name="bio" required/></p>
+        <button class="btnstyle">Create Account</button>
+        <a href="{{url_for('login')}}" target="_blank" style="color:aliceblue">Already Have an Account?</a>
+    </form>
+</div>
+</body>
+</html>

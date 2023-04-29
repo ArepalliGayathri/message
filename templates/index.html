@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger</title>
+    <style>
+        * {
+            font-family:Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        body {
+            background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20220112/pngtree-glass-morphim-effect-registration-banner-with-gradient-blue-image_934693.jpg');
+            background-size:cover;
+
+        }
+        .btnstyle {
+            background-color:rgb(226, 234, 237);
+            color:black;
+            padding:20px;
+            border-radius: 8px;
+            border:none;
+            font-size: 25px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .student {
+            margin-top:23%; 
+        }
+    </style>
+</head>
+<body>
+    <div class="student">
+    <center><h1>Messenger</h1></center>
+    </div>
+    <div style="text-align:center;">
+    
+    <a href="{{url_for('login')}}"><button class="btnstyle">Login</button></a>
+    <a href="{{url_for('signup')}}"><button class="btnstyle">Sign-Up</button></a>
+    </div>
+</body>
+</html>
