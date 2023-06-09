@@ -1,6 +1,6 @@
 .bgimg{
-    background-image: url("https://w0.peakpx.com/wallpaper/299/582/HD-wallpaper-fathers-stuff-ultra-aero-patterns-dark-black-glasses-pattern-male-crown-father-stuff-mustache-hats-necktie.jpg");
-    /* background-color: #111; */
+    background-image: url("https://media.istockphoto.com/id/1226478932/photo/round-podium-or-pedestal-with-blue-background.jpg?b=1&s=170667a&w=0&k=20&c=AkUOd2vv2ce1SGV5Sf3hG0OzYFgWLmKXT8SrnXIxea8=");
+    /* background-color: #696464; */
     height:100vh;
     width: 100vw;
     background-size: cover;
@@ -9,7 +9,7 @@
 
 .head{
    text-align: center;
-   background-color:rgb(161, 160, 160);
+   background-color:rgb(0, 0, 0);
    color: hsl(261, 92%, 47%);
 }
 .container{

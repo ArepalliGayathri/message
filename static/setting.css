@@ -4,17 +4,17 @@
     margin-inline-end: 0;
 }
 .bgimg{
-    background-image: url("https://cdn.wallpapersafari.com/95/37/jwKbaN.jpg");
+    background-image: url("https://t4.ftcdn.net/jpg/04/45/74/91/360_F_445749168_e461cOBPmQKpJ3cSwLfGGooYXXR8gC5V.jpg");
     background-size: cover;
-    width:150vw;
-    height:130vh;
+    width:120vw;
+    height: 800px;
     position:fixed;
     
 }
 .link{
     
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: black;
+    color: white;
     margin-left:0px;
     margin-top:50px;
     padding:60px;
@@ -22,10 +22,11 @@
     font-size:20px;
 
 }
+
 .paraline{
     margin-left:0px;
     padding:10px;
 }
 select{
-    margin-left: 100px;
+    margin-left: 150px;
 }

@@ -1,5 +1,5 @@
 .bgimage{
-    background-image:url("https://img.freepik.com/free-photo/sunny-defocused-green-nature-background-abstract-bokeh-effect-es-element-your-design_211682-265.jpg?w=2000");
+    background-image:url("https://i.pinimg.com/736x/63/00/a7/6300a74eae90be4938bb39257e3fe6d9.jpg");
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -25,9 +25,9 @@
     margin:5% 45% ;
 }
 #photo{
-    width:100%;
-    height:100%;
-    border-radius: 50%;
+    width:200%;
+    height:200%;
+    border-radius: 100%;
     
     
 }
@@ -41,10 +41,14 @@
     left:690px;
 }
 
-
+#uploadbtn1{
+    position:absolute;
+    bottom:200px;
+    left:690px;
+}
 .one{
-    margin-top:5%;
-    margin-left:40%;
+    margin-top:10%;
+    margin-left:35%;
     
 }
 label{
@@ -69,6 +73,13 @@ button{
     width: 80px;
     
 }
+
+.bi{
+    margin-top: 45%;
+    padding-top: 10%;
+    position: absolute;
+}
+
 
 
 

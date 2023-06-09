@@ -7,6 +7,7 @@ import random
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from tokenreset import token
 from io import BytesIO
+import os
 app=Flask(__name__)
 app.secret_key="27@Messanger"
 app.config['SESSION_TYPE']='filesystem'
@@ -42,13 +43,17 @@ def signup():
         cursor=mysql.connection.cursor()
         cursor.execute("select id from users")
         data=cursor.fetchall()
-        cursor.execute("select email from users")
-        edata=cursor.fetchall()
-        otp=genotp()
-        subject='Thanks for registering to the application'
-        body=f'Use this otp to register {otp}'
-        sendmail(email,subject,body)
-        return render_template('otp.html',otp=otp,id=id,first_name=first_name,last_name=last_name,email=email,password=password,bio=bio)
+        if (id,) in data:
+            flash('already id exists')
+            return render_template('Signup.html')
+        else:
+            cursor.execute("select email from users")
+            edata=cursor.fetchall()
+            otp=genotp()
+            subject='Thanks for registering to the application'
+            body=f'Use this otp to register {otp}'
+            sendmail(email,subject,body)
+            return render_template('otp.html',otp=otp,id=id,first_name=first_name,last_name=last_name,email=email,password=password,bio=bio)
         # cursor.execute('insert into users(id,Frist_Name,Last_Name,Email,Password) values(%s,%s,%s,%s,%s)',[id,First_Name,Last_Name,Email,Password])
         # #mysql.get_db().commit()
         # mysql.connection.commit()
@@ -139,12 +144,29 @@ def profilepage():
     cursor=mysql.connection.cursor()
     cursor.execute('select first_name,last_name,email,bio from users where id=%s',[session.get('user')])
     data=cursor.fetchone()
-    print(data)
-    cursor.connection.commit()
     cursor.close()
-    return render_template('Profile.html',data=data)
-@app.route('/settings')
+    path=os.path.dirname(os.path.abspath(__file__))
+    static_path=os.path.join(path,'static')
+    fdata=os.listdir(static_path)
+    print(session.get('user'))
+    if request.method=='POST':
+        file=request.files['file']
+        ext=file.filename.split('.')
+        if ext!='.jpg':
+            flash('Upload only .jpg')
+        filename=session.get('user')+'.jpg'
+        file.save(os.path.join(static_path,filename))
+        fdata=os.listdir(static_path)
+    return render_template('Profile1.html',data=data,fdata=fdata)
+@app.route('/settings',methods=['GET','POST'])
 def settings():
+    if request.method=='POST':
+        email = request.form['email']
+        cursor=mysql.connection.cursor()
+        cursor.execute('update users set email=%s where id=%s',[email,session.get('user')])
+        mysql.connection.commit()
+        cursor.close()
+        flash('Email submitted successfully')
     return render_template('setting.html')
 @app.route('/back')
 def back():
@@ -234,9 +256,10 @@ def createpassword(token):
             else:
                 return 'Password mismatch'
         return render_template('newpassword.html')
-    except:
+    except Exception as e:
+        print(e)
         return 'Link expired try again'
-        return render_template('newpassword.html')
+        
 app.run(use_reloader=True,debug=True)
 
 

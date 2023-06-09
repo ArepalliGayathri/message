@@ -7,11 +7,13 @@
     <title>OTP validation</title>
 </head>
 {% with messages = get_flashed_messages() %}
-  {% if messages %}
-    {% for message in messages %}
-      <center><b>{{ message }}</b></center>
-    {% endfor %}
-  {% endif %}
+{% if messages %}
+  <ul class=flashes>
+  {% for message in messages %}
+  <center><h3 style="color:black;padding-top: 5px;"><b>{{message}}</b></h3></center>
+  {% endfor %}
+  </ul>
+{% endif %}
 {% endwith %}
 <body>
     <form method="POST" action="{{url_for('otp',otp=otp,id=id,first_name=first_name,last_name=last_name,email=email,password=password,bio=bio)}}">

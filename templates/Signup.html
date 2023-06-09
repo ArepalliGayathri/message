@@ -28,6 +28,15 @@
         }
     </style>
 </head>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  <ul class=flashes>
+  {% for message in messages %}
+  <center><h3 style="color:rgb(233, 22, 187);padding-top: 5px;"><b>{{message}}</b></h3></center>
+  {% endfor %}
+  </ul>
+{% endif %}
+{% endwith %}
 <body>
     <center>
     <h1 style="color:white">Registration</h1></center>
